@@ -1,20 +1,40 @@
 # MOZAIC
 
-**Protocol-based telemetry replay and task-separated incident analysis**
+**Protocol-Based Telemetry Replay and Task-Separated Incident Analysis**
 
-![MOZAIC evaluation workflow: Kubernetes, Sentry, CloudWatch and Grafana feed a common schema; detection, association, clustering and labelling are evaluated separately](assets/overview.svg)
+Code and evidence for the MOZAIC revision for *Computing*. MOZAIC replays Kubernetes, Sentry, CloudWatch and Grafana telemetry through the Model Context Protocol (MCP). It evaluates detection, association, clustering and optional scenario labelling separately.
 
-This repository accompanies the revised manuscript for *Computing*. It contains the replay and analysis code, selected experiment configurations, and aggregate evidence for checking reported results. MOZAIC keeps record detection, cross-source association, clustering and optional language-model labelling separate so that a result from one task does not stand in for another.
+[Workflow](#replay-workflow) · [Results](#results-from-the-manuscript) · [Run the checks](#run-the-checks) · [Provenance](#provenance-and-scope)
 
-## Start here
+## Replay workflow
 
-**Check the paper's aggregate evidence first.** This takes Python 3.9+ and no extra packages or credentials:
+<img src="assets/figure-1-replay-workflow.png" width="695" alt="Seven stages from replay-page retrieval and schema normalization through context, encoding, analysis, labelling and reporting">
+
+**Figure 1, manuscript p. 6.** Reference labels are kept separate from analysis inputs. Context uses earlier records from the same source, service and partition. The encoder weights are fixed; the detector still needs fitting and calibration.
+
+## Results from the manuscript
+
+### Detection varies by source
+
+<img src="assets/figure-2-detection-f1.png" width="540" alt="Round 8 mean detection F1: Kubernetes 0.507, Sentry 0.694, CloudWatch 0.087 and Grafana 0.100">
+
+**Figure 2, manuscript p. 13.** Mean detection F1 and archived 95% bootstrap intervals for five synthetic Round 8 runs under the historical quiet-baseline protocol. These are not production scores. [Source-level summary](evidence/data/round8_quiet_detection_summary.csv)
+
+### Association depends on identifiers
+
+<img src="assets/figure-3-identifier-stress.png" width="500" alt="Two panels show pair F1 and false co-memberships under identifier dropout and corruption">
+
+**Figure 3, manuscript p. 15.** With the same records and reference labels, mean pair F1 fell from **0.557** with identifiers intact to **0.016** with full dropout. The bottom panel counts false co-memberships in a selected cohort of 95 negative pairs. It is not the global false-positive rate. [Global counts](evidence/data/round8_background_pair_counts.csv) · [Selected-pair counts](evidence/data/round8_overlap_counts.csv)
+
+## Run the checks
+
+**Verify the aggregate evidence.** Python 3.9+; no extra dependencies, credentials or data downloads.
 
 ```sh
 python3 evidence/verify_aggregates.py
 ```
 
-For the code smoke test, use Python 3.11:
+**Exercise the runtime on synthetic fixtures.** Use Python 3.11 or 3.12.
 
 ```sh
 cd runtime
@@ -24,36 +44,21 @@ python -m pip install -r requirements-smoke.txt
 python -m pytest -q
 ```
 
-The smoke tests use generated fixtures, not the paper's measurement data. They do not download MiniLM or call a model provider. The release check passed 38 fixture tests. For the optional four-source in-process replay example, see [runtime instructions](runtime/REPRODUCIBILITY.md).
+The release check passed 38 fixture tests. The optional [four-source replay example](runtime/REPRODUCIBILITY.md) runs in process, with invented records and no cloud accounts. Neither check runs the historical experiments or calls a model provider.
 
-| Directory | Start with |
+## Provenance and scope
+
+| Looking for | Start here |
 | --- | --- |
-| [Runtime](runtime/) | Replay adapters, shared schema, fitted detector, association, clustering and tests. [Source provenance](runtime/SOURCE_PROVENANCE.json) identifies the archived code and any adaptations. |
-| [Evidence](evidence/) | [Table-to-artifact guide](evidence/README.md), aggregates and an offline checker. |
+| A manuscript result and its supporting file | [Evidence guide](evidence/README.md) |
+| Source commits, experiment cohorts and file hashes | [Aggregate manifest](evidence/aggregate_manifest.json) |
+| Original file hashes, extracted code and frozen settings | [Runtime provenance](runtime/SOURCE_PROVENANCE.json) |
+| Origin of the three figures | [Figure notes](assets/README.md) |
 
-The original semantic encoder was `sentence-transformers/all-MiniLM-L6-v2` at revision `c9745ed1d9f207416be6d2e6f8de32d1f16199bf`.
+This public snapshot does not include the development history, original submission data, private telemetry, complete predictions or memberships, or paid-provider checkpoints. The evidence checker verifies the included aggregate counts and selected calculations, not every underlying experiment.
 
-## One result from the paper
+HDFS and BGL are sampled single-source detection benchmarks. RCAEval labels indicate exposure to a fault injection, not independent record-level anomaly truth. Round 9 rescored saved assignments without refitting or reclustering. The later four-source collection check reached offline initialization and did not score records. Archived scenario-label agreement is not a human assessment of diagnosis quality.
 
-![Gated association mean pair F1 falls from 0.557 with identifiers intact to 0.016 after all identifiers are removed](assets/identifier-stress.svg)
+**Encoder pin:** `sentence-transformers/all-MiniLM-L6-v2`, revision `c9745ed1d9f207416be6d2e6f8de32d1f16199bf`.
 
-The chart uses five Round 8 synthetic confirmation seeds. Both conditions keep the same records and reference labels, with background records included. The values measure whether pairs land in the same predicted group, not whether the system identifies a root cause.
-
-## What the evaluation establishes
-
-| Evaluation | Scope |
-| --- | --- |
-| HDFS and BGL | Sampled single-source detection benchmarks. No cross-source association claim. |
-| Round 8 | Synthetic confirmation runs. Tests detection, identifier stress and selected clustering conditions. |
-| Round 9 | Re-scores saved assignments. No new detector fitting or clustering rerun. |
-| RCAEval | Case-disjoint temporal exposure check on logs, metrics and traces. Exposure labels are not independent record-level anomaly labels. |
-| Four-source collection check | 40 observations across Kubernetes, Grafana, Sentry and CloudWatch supported offline initialization. No scoring or grouping was run in this check. |
-| Archived labelling runs | JSON parsing, schema validity and scenario-family agreement are distinct checks. Free-text usefulness and diagnosis were not human-rated. |
-
-## Reproducibility boundary
-
-The included code and aggregate checks do not replace the full experiment archive. This release does not include the original submission data, private telemetry, credentials, paid provider checkpoints, or complete row-level predictions and memberships. It cannot independently recreate every reported number or establish production incident diagnosis. The detector requires fitting and calibration even though the encoder weights are fixed.
-
-## Citation
-
-If citing this material in the review, cite *MOZAIC: Protocol-Based Telemetry Replay and Task-Separated Incident Analysis* and the commit of this repository you used.
+When referencing the repository, cite the manuscript title and the exact Git commit you used.
