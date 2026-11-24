@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "mozaic-rebuild"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy==2.2.6", "scipy==1.15.3", "scikit-learn==1.6.1",
+  "sentence-transformers==4.1.0", "transformers==4.51.3",
+  "huggingface-hub==0.30.2", "torch==2.7.0",
+  "mcp==1.12.4", "httpx==0.28.1", "PyYAML==6.0.2",
+  "pydantic==2.11.7", "pydantic-settings==2.10.1",
+  "starlette==0.47.2", "sse-starlette==2.4.1", "uvicorn==0.35.0", "anyio==4.9.0"
+]
+[project.optional-dependencies]
+evaluation = ["xgboost==3.0.2", "drain3==0.9.11", "matplotlib==3.10.1", "pandas==2.2.3"]
+test = ["pytest==8.3.5", "pytest-asyncio==0.26.0"]
+dev = ["ruff==0.12.12"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mozaic*", "generator*", "mcp_servers*", "orchestrator*", "eval*", "figures*"]
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+required-version = "==0.12.12"
+target-version = "py311"
+line-length = 88
+extend-exclude = ["data", "results", "release", ".venv"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

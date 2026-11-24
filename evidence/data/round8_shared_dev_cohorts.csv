@@ -1,0 +1,25 @@
+source,cohort,total,normal,memory_leak,deployment_failure,database_connection_pool_exhaustion
+cloudwatch,full dataset,65774,62880,806,864,1224
+cloudwatch,fit,35620,34060,411,244,905
+cloudwatch,calibration,12256,11790,296,170,0
+cloudwatch,validation,17898,17030,99,450,319
+grafana,full dataset,20596,19680,301,319,296
+grafana,fit,11123,10660,155,90,218
+grafana,calibration,3861,3690,109,62,0
+grafana,validation,5612,5330,37,167,78
+kubernetes,full dataset,5550,5280,100,160,10
+kubernetes,fit,2965,2860,50,48,7
+kubernetes,calibration,1062,990,40,32,0
+kubernetes,validation,1523,1430,10,80,3
+sentry,full dataset,36132,34560,522,558,492
+sentry,fit,19512,18720,270,156,366
+sentry,calibration,6774,6480,186,108,0
+sentry,validation,9846,9360,66,294,126
+cloudwatch,fit selected targets,2000,1900,24,20,56
+cloudwatch,calibration selected targets,2000,1921,49,30,0
+grafana,fit selected targets,2000,1917,30,20,33
+grafana,calibration selected targets,2000,1911,55,34,0
+kubernetes,fit selected targets,2000,1934,31,30,5
+kubernetes,calibration selected targets,1062,990,40,32,0
+sentry,fit selected targets,2000,1919,27,18,36
+sentry,calibration selected targets,2000,1916,58,26,0

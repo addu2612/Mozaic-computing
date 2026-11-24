@@ -1,0 +1,19 @@
+{
+  "profile": "final",
+  "warmup_partition": "UTC ten-minute normal-bucket SHA256 residues: fit<6, calibration<8, otherwise validation",
+  "sample_cap": 2000,
+  "sampling_seed": 1411,
+  "window": 20,
+  "detector_centers": 32,
+  "detector_n_init": 10,
+  "threshold_quantile": 0.95,
+  "correlation": "detector-gated id_time with ID-less semantic fallback",
+  "correlation_seconds": 300,
+  "cosine_threshold": 0.4,
+  "entity_extension": false,
+  "primary": {"method": "HDBSCAN", "min_cluster_size": 10, "min_samples": 5},
+  "comparator": {"method": "KMeans silhouette", "minimum_k": 2, "maximum_k": 8, "n_init": 10, "seed": 1411},
+  "llm_default": false,
+  "replay_warmup": {"directory": "data/prevalence5/dev", "start": "2026-01-01T00:00:00Z", "end": "2026-01-01T01:38:21.868116Z"},
+  "scale": {"directory": "data/prevalence5/test_seeds/2211", "start": "2026-01-01T02:00:00Z", "sizes": [1000, 5000, 10000, 20000], "repeats": 3}
+}

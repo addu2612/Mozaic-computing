@@ -1,0 +1,5 @@
+source,quiet_interval_all_partitions,quiet_fit_history,quiet_fit_selected,quiet_fit_selected_normal,mac_audit_reported_match
+cloudwatch,11659,7729,2000,2000,PASS
+grafana,3649,2419,2000,2000,PASS
+kubernetes,979,649,649,649,PASS
+sentry,6408,4248,2000,2000,PASS

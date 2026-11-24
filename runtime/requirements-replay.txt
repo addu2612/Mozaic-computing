@@ -1,0 +1,7 @@
+-r requirements-smoke.txt
+anyio==4.9.0
+mcp==1.12.4
+pydantic-settings==2.10.1
+sse-starlette==2.4.1
+starlette==0.47.2
+uvicorn==0.35.0

@@ -1,0 +1,11 @@
+{
+  "basis": "PROTOCOL.md: Amendment: round eight dev-designed improvements and confirmation seeds",
+  "sources": ["kubernetes", "sentry", "cloudwatch", "grafana"],
+  "detection_methods": ["round7", "quiet"],
+  "correlation_methods": ["id_time", "time", "embedding", "hybrid", "gated", "gated_entities"],
+  "correlation_panels": ["conditional", "background_inclusive"],
+  "perturbations": [[0.0, 0.0], [0.25, 0.0], [0.5, 0.0], [0.75, 0.0], [1.0, 0.0], [0.0, 0.1], [0.0, 0.5]],
+  "clustering_methods": ["MOZAIC", "UMAP-HDBSCAN", "KMeans silhouette", "KMeans oracle-k", "Agglomerative oracle-k"],
+  "incident_panels": ["predicted", "true_upper_bound"],
+  "prevalence_bounds": [0.03, 0.07]
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="390" viewBox="0 0 940 390" role="img" aria-labelledby="title desc">
+<title id="title">MOZAIC evaluation workflow</title>
+<desc id="desc">Four telemetry sources feed the replay interface and common schema. Detection, association, clustering and scenario labelling are evaluated as separate tasks.</desc>
+<rect width="940" height="390" rx="23" fill="#101828"/>
+<text x="36" y="67" font-family="sans-serif" font-weight="700" font-size="38" fill="#f6f9ff">MOZAIC</text>
+<text x="38" y="101" font-family="sans-serif" font-size="19" fill="#a9bad8">Protocol-based telemetry replay and task-separated incident analysis</text>
+<path d="M286 204h35m295 0h35" stroke="#82a7ff" stroke-width="3"/>
+<path d="M313 198l8 6-8 6m330-12l8 6-8 6" stroke="#82a7ff" stroke-width="3" fill="none"/>
+<g fill="#19263d" stroke="#39517a" stroke-width="1.4">
+<rect x="36" y="132" width="250" height="184" rx="14"/>
+<rect x="321" y="132" width="295" height="184" rx="14"/>
+<rect x="651" y="132" width="253" height="184" rx="14"/>
+</g>
+<g font-family="sans-serif" font-size="17" fill="#e7efff">
+<g fill="#9cbcff" font-size="15" font-weight="700">
+<text x="58" y="164">01   SOURCES</text>
+<text x="343" y="164">02   REPLAY &amp; NORMALIZE</text>
+<text x="673" y="164">03   EVALUATE SEPARATELY</text>
+</g>
+<text x="58" y="201">Kubernetes</text><text x="58" y="227">Sentry</text><text x="58" y="253">CloudWatch</text><text x="58" y="279">Grafana</text>
+<text x="343" y="201">Model Context Protocol</text><text x="343" y="227">Common record schema</text><text x="343" y="253">Partition before context</text><text x="343" y="279">Isolate evaluation labels</text>
+<text x="673" y="201">Record detection</text><text x="673" y="227">Cross-source association</text><text x="673" y="253">Clustering</text><text x="673" y="279">Scenario labelling</text>
+</g>
+<text x="38" y="355" font-family="sans-serif" font-size="15" fill="#a9bad8">COMPUTING REVISION  /  REPRODUCIBILITY MATERIALS</text>
+</svg>

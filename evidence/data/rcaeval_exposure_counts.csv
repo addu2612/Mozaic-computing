@@ -1,0 +1,10 @@
+modality,split,pre_injection,post_injection,records
+logs,fit,408,392,800
+logs,calibration,198,202,400
+logs,test,612,588,1200
+metrics,fit,399,401,800
+metrics,calibration,197,203,400
+metrics,test,610,590,1200
+traces,fit,397,403,800
+traces,calibration,212,188,400
+traces,test,654,546,1200

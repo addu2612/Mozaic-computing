@@ -1,0 +1,8 @@
+run,valid_and_correct,eligible_clusters
+groq,21,41
+ollama,8,41
+sarvam__sarvam-105b__r1,26,41
+sarvam__deepseekv4.1-flash-1017__r1,21,41
+sarvam__gemma4__r1,28,41
+sarvam__glm5.3-flash__r1,22,41
+sarvam__glm5.3__r1,24,41

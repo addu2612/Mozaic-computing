@@ -1,0 +1,5 @@
+source,fit_observations,calibration_observations
+kubernetes,5,5
+sentry,5,5
+cloudwatch,5,5
+grafana,5,5

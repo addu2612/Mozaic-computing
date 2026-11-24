@@ -1,0 +1,29 @@
+{
+  "allowed_services": [
+    "analytics-service",
+    "notification-service",
+    "order-service",
+    "payment-service",
+    "product-service",
+    "user-service"
+  ],
+  "clustering": {
+    "min_cluster_size": 3,
+    "n_components": 2,
+    "n_neighbors": 10
+  },
+  "normal_rates": {
+    "cloudwatch": 131,
+    "grafana": 41,
+    "kubernetes": 11,
+    "sentry": 72
+  },
+  "numeric_fusion": false,
+  "seeds": [
+    7711,
+    8811,
+    9911,
+    10111,
+    12111
+  ]
+}

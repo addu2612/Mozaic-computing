@@ -1,0 +1,197 @@
+{
+  "files": {
+    "data/conditional_dev_context_summary.csv": {
+      "kind": "historical synthetic validation ablation; fixed label-selected target cohorts, no held-out conclusions",
+      "sha256": "9b30e855941667b265d5c86772fa3fb413e8c17436cb1cbb208ff4c825cedb10",
+      "sources": [
+        {
+          "evaluation_commit": "e0c57b2daa242b5aa3ab7afe33f288c8e4cfdd87",
+          "path": "rebuild/reports/evidence/dev_context_ablation.json",
+          "reference_commit": "c110779452b926cafc1c889405b842951fb91832",
+          "snapshot_sha256": "346e3e79ba1cf0feda6a5bbe7fabe022f9432f0586a5678bcd2528b64fdddd7f"
+        }
+      ]
+    },
+    "data/historical_taxonomy_counts.csv": {
+      "kind": "historical Table 8 seven primary model runs; no prompts or human ratings",
+      "sha256": "16c846a3d1739621789ecf6b11badf8a00b091d70469a887c041be964723c5dc",
+      "sources": [
+        {
+          "evaluation_commit": "2983de7d430f6c002ec0a87e6690c9d152d6a1ee",
+          "path": "rebuild/reports/CURRENT.md",
+          "reference_commit": "c110779452b926cafc1c889405b842951fb91832",
+          "snapshot_sha256": "f39187b712b26a2ceb33a613af516853bd829b6dc13abed98531182891d06baf"
+        },
+        {
+          "cohort_reported": "synthetic test seed 2211",
+          "path": "rebuild/reports/MANUSCRIPT_CHANGE_NOTES.md",
+          "reference_commit": "c110779452b926cafc1c889405b842951fb91832"
+        }
+      ]
+    },
+    "data/offline_initialization_counts.csv": {
+      "kind": "disposable-environment four-source collection and offline initialization only",
+      "sha256": "045aeedd7661a8d72dfe20382a694c090b2af439dd374a35540de1a3fa7dce46",
+      "sources": [
+        {
+          "evidence_commit": "3ff40c1c9705ea66babe841fb21e821a89bb7d4e",
+          "expected_upstream_sha256": "20abfe02476718e88c3e14588c325c6f3c24a88a6d8943df1427ea52eb9d7b60",
+          "path": "review/nov20-evidence/initialization.json",
+          "runner_revision": "4be9f9188322ccfefdf9d897b0d283a2ac7457dd"
+        }
+      ]
+    },
+    "data/public_single_source_detection.csv": {
+      "kind": "historical Table 4 detection aggregates, not third-party dataset copies",
+      "sha256": "87ba4b3dd7c19094e3be8523b5afb75ba59e4d785ad6c75066d5491ad2a7cea5",
+      "sources": [
+        {
+          "evaluation_commit": "23887c2c4a2fd5e785965d2a43e5787cd0a94116",
+          "path": "rebuild/reports/evidence/public_hdfs_unsupervised.json",
+          "reference_commit": "c110779452b926cafc1c889405b842951fb91832",
+          "snapshot_sha256": "be3d398c220bbcd979b145ca072bcf6400c55425b6c02cb18e639ab61b7b15ab"
+        },
+        {
+          "evaluation_commit": "ac492048c3b2623e332cf7e126b62df5dc82357a",
+          "path": "rebuild/reports/evidence/public_bgl_unsupervised.json",
+          "reference_commit": "c110779452b926cafc1c889405b842951fb91832",
+          "snapshot_sha256": "8c8043795cdb28bbc03950ee5ddee57e346e9ef3c8dd7e806167d5132a74e4e5"
+        }
+      ]
+    },
+    "data/rcaeval_exposure_counts.csv": {
+      "kind": "author-supplied audit aggregate; underlying private inputs not independently inspected",
+      "sha256": "6438f546232cfd6ea3c89bfc8f9658dd3c33ad956025b1809a77123a301e510f",
+      "sources": [
+        {
+          "author_audit_report_sha256": "d6186addf35e53843c3449682bb0e88ee8dab7093b16c0bca2de53ab4b5b19b4",
+          "prior_revision_snapshot": "revision/evidence/rcaeval_exposure_counts.csv",
+          "private_archive_revision_reported": "573d2b9e1f43a7af68297d5a43c1ae53df523728",
+          "snapshot_sha256": "6438f546232cfd6ea3c89bfc8f9658dd3c33ad956025b1809a77123a301e510f"
+        }
+      ]
+    },
+    "data/round8_background_pair_counts.csv": {
+      "kind": "author-supplied audit aggregate; underlying private inputs not independently inspected",
+      "sha256": "634a549fbb68b1a2f12c049bed83fc90cbfb81868db0a9eeca1d0dfa9f077067",
+      "sources": [
+        {
+          "author_audit_report_sha256": "d6186addf35e53843c3449682bb0e88ee8dab7093b16c0bca2de53ab4b5b19b4",
+          "prior_revision_snapshot": "revision/evidence/round8_background_pair_counts.csv",
+          "private_archive_revision_reported": "573d2b9e1f43a7af68297d5a43c1ae53df523728",
+          "snapshot_sha256": "634a549fbb68b1a2f12c049bed83fc90cbfb81868db0a9eeca1d0dfa9f077067"
+        }
+      ]
+    },
+    "data/round8_confirmation_inventory.csv": {
+      "kind": "author-supplied audit aggregate; underlying private inputs not independently inspected",
+      "sha256": "8d1b5e7f769066433ae8c6b3ecce53d900bb9d738c675de7d72f5694581360fe",
+      "sources": [
+        {
+          "author_audit_report_sha256": "d6186addf35e53843c3449682bb0e88ee8dab7093b16c0bca2de53ab4b5b19b4",
+          "prior_revision_snapshot": "revision/evidence/round8_confirmation_inventory.csv",
+          "private_archive_revision_reported": "573d2b9e1f43a7af68297d5a43c1ae53df523728",
+          "snapshot_sha256": "8d1b5e7f769066433ae8c6b3ecce53d900bb9d738c675de7d72f5694581360fe"
+        }
+      ]
+    },
+    "data/round8_global_gated.json": {
+      "kind": "historical registry summary; saved seed bootstrap endpoints",
+      "sha256": "c509534cc50b9168b816d56ed56b392d30bd765cefa51d06a449e0581a3a8ca2",
+      "sources": [
+        {
+          "paths": [
+            "rebuild/reports/STATUS.md",
+            "rebuild/reports/CURRENT.md"
+          ],
+          "prior_snapshot_sha256": "4b5b0bf024c81fb46c759e37e6154d552fa5783e89a373479c0c40cf72c68913",
+          "reference_commit": "c110779452b926cafc1c889405b842951fb91832"
+        }
+      ]
+    },
+    "data/round8_overlap_counts.csv": {
+      "kind": "retrospective selected negative-pair diagnostic; no new benchmark",
+      "sha256": "3b7935a89ccda28e0981130be3d765e499930563091946c6238381fd5264ca43",
+      "sources": [
+        {
+          "evidence_commit": "3ff40c1c9705ea66babe841fb21e821a89bb7d4e",
+          "expected_upstream_sha256": [
+            "f0502d5f22773fd4f0bbb2d47f71be258b450a4816b83d4d67d17ee69a479f56",
+            "996022ab02603c774731e2dae22cc61263b84c8b1c3bcbc5e10fa135241d21eb"
+          ],
+          "paths": [
+            "review/nov20-evidence/round8/gated.csv",
+            "review/nov20-evidence/round8/comparators.csv"
+          ]
+        }
+      ]
+    },
+    "data/round8_quiet_detection_summary.csv": {
+      "kind": "historical Table 5 and Figure 2 values; evidence report transcription",
+      "sha256": "2ae2cc69613a2c31ad96e899bd8b81de170d7f85f757126269dc32b3ebc9b0c1",
+      "sources": [
+        {
+          "evaluation_commit": "b83148e1fb298e5112ce7aa4d6c3b2cfd01f4cfb",
+          "path": "rebuild/reports/CURRENT.md",
+          "reference_commit": "c110779452b926cafc1c889405b842951fb91832",
+          "snapshot_sha256": "f39187b712b26a2ceb33a613af516853bd829b6dc13abed98531182891d06baf"
+        }
+      ]
+    },
+    "data/round8_shared_dev_cohorts.csv": {
+      "kind": "author-supplied audit aggregate; underlying private inputs not independently inspected",
+      "sha256": "a6ff1fd729b032eec5a23f9c36c2808dc0680a4e369e9ad769541cc8268dcf92",
+      "sources": [
+        {
+          "author_audit_report_sha256": "818641d964897237c32a73ef6594a19f76a28ed874097ccf6f57224a41204485",
+          "prior_revision_snapshot": "revision/evidence/round8_shared_dev_cohorts.csv",
+          "private_archive_revision_reported": "573d2b9e1f43a7af68297d5a43c1ae53df523728",
+          "snapshot_sha256": "a6ff1fd729b032eec5a23f9c36c2808dc0680a4e369e9ad769541cc8268dcf92"
+        }
+      ]
+    },
+    "data/round8_shared_dev_quiet_fit.csv": {
+      "kind": "author-supplied audit aggregate; underlying private inputs not independently inspected",
+      "sha256": "6419acf75bc39aa1c61787d09c8c4fdb4b7b54537e86d973d184b5721fda1ecc",
+      "sources": [
+        {
+          "author_audit_report_sha256": "818641d964897237c32a73ef6594a19f76a28ed874097ccf6f57224a41204485",
+          "prior_revision_snapshot": "revision/evidence/round8_shared_dev_quiet_fit.csv",
+          "private_archive_revision_reported": "573d2b9e1f43a7af68297d5a43c1ae53df523728",
+          "snapshot_sha256": "6419acf75bc39aa1c61787d09c8c4fdb4b7b54537e86d973d184b5721fda1ecc"
+        }
+      ]
+    },
+    "notices/Loghub.txt": {
+      "kind": "attribution notice; upstream data not included",
+      "sha256": "1abe96d27ebef1db90e70ce7085dc94ce49b4a5a81330e3e0bbc9182daaab07d",
+      "sources": [
+        {
+          "public_upstream": "https://github.com/logpai/loghub/blob/master/LICENSE"
+        }
+      ]
+    },
+    "notices/RCAEval-MIT.txt": {
+      "kind": "attribution notice; upstream data not included",
+      "sha256": "2c675ca465dbffa881b4ddc19c32beb83817fc098c1f9f6bd71a15171b6a7a9c",
+      "sources": [
+        {
+          "public_upstream": "https://github.com/phamquiluan/RCAEval/blob/main/LICENSE"
+        }
+      ]
+    }
+  },
+  "manuscript_identity": {
+    "comparison_scope": "Reported aggregate values checked against the current PDF; omitted underlying evidence is not validated.",
+    "file": "computingq1_Updated.pdf",
+    "pages": 22,
+    "sha256": "cbb41a51a95fcf690de6743ac89ac5d68a6dae416fc43de08cd2a9c301dd644d"
+  },
+  "prior_manuscript_identity": {
+    "file": "computingq1_final.pdf",
+    "pages": 22,
+    "relationship": "Earlier editorial PDF used during extraction planning; not the current manuscript.",
+    "sha256": "a675cc40fa1b9f1484b9c414baf09c33cfd19f8ecc0cbb6f84cdde49515d2ac4"
+  },
+  "scope": "Aggregate evidence and offline arithmetic checks. Raw archive and reviewer access are not established by these files."
+}

@@ -1,0 +1,8 @@
+drop=0.00 corrupt=0.00 macro_f1=0.556741 mean_fpr_per_million=9.17
+drop=0.25 corrupt=0.00 macro_f1=0.405523 mean_fpr_per_million=9.17
+drop=0.50 corrupt=0.00 macro_f1=0.385508 mean_fpr_per_million=8.33
+drop=0.75 corrupt=0.00 macro_f1=0.131524 mean_fpr_per_million=10.00
+drop=1.00 corrupt=0.00 macro_f1=0.016000 mean_fpr_per_million=10.83
+drop=0.00 corrupt=0.10 macro_f1=0.488408 mean_fpr_per_million=8.33
+drop=0.00 corrupt=0.50 macro_f1=0.219041 mean_fpr_per_million=10.00
+PASS: shipped aggregate checks. No experiment, model, provider or raw archive was run.
