@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="282" viewBox="0 0 880 282" role="img" aria-labelledby="title desc">
+<title id="title">Round 8 development and confirmation split</title>
+<desc id="desc">The shared development corpus is partitioned by complete synthetic incidents or ten-minute background buckets. Fit and calibration use development only. Five held-out confirmation seeds generate 20 seed-source cells, each with 2,000 detection targets. Context is assembled after partitioning.</desc>
+<rect x="1" y="1" width="878" height="280" rx="10" fill="#fff" stroke="#cdd7e4" stroke-width="2"/>
+<g font-family="Arial, sans-serif" fill="#132746">
+<text x="27" y="39" font-size="24" font-weight="bold">Round 8: development and confirmation</text>
+<rect x="27" y="66" width="398" height="160" rx="6" fill="#f4f7fb" stroke="#c2d0e0"/>
+<rect x="455" y="66" width="398" height="160" rx="6" fill="#f4f7fb" stroke="#c2d0e0"/>
+<g font-size="15">
+<text x="45" y="95" font-weight="bold">Shared development corpus</text>
+<text x="45" y="126">Hash whole incidents or 10-minute</text><text x="45" y="146">background buckets into partitions.</text>
+<text x="473" y="95" font-weight="bold">Held-out confirmation seeds</text>
+<text x="473" y="126">7711, 8811, 9911, 10111, 12111</text>
+<text x="473" y="153">5 seeds × 4 sources = 20 cells</text>
+<text x="473" y="179">2,000 detection targets per cell</text>
+<text x="473" y="205">No confirmation records used for fitting.</text>
+<text x="27" y="256" fill="#365679">Build context only after partitioning. Each target can use only earlier records in its own partition.</text>
+</g>
+<g font-size="14" font-weight="bold" fill="#244568" text-anchor="middle">
+<rect x="45" y="173" width="103" height="34" rx="4" fill="#e1ebf6"/><text x="96" y="195">Fit</text>
+<rect x="162" y="173" width="122" height="34" rx="4" fill="#e1ebf6"/><text x="223" y="195">Calibration</text>
+<rect x="298" y="173" width="109" height="34" rx="4" fill="#e1ebf6"/><text x="352" y="195">Validation</text>
+</g>
+</g>
+</svg>

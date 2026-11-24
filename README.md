@@ -4,6 +4,8 @@
 
 MOZAIC replays telemetry from Kubernetes, Sentry, CloudWatch and Grafana through the Model Context Protocol. It scores unusual records, links records across sources and clusters them. Each task is evaluated separately.
 
+![MOZAIC evaluation workflow: four sources, replay, input preparation, and four analysis tasks](assets/evaluation-workflow.svg)
+
 ## Check the results
 
 ```sh
@@ -31,6 +33,12 @@ Run from the repository root with Python 3.9 or newer. No packages, downloads or
 <img src="assets/figure-2-detection-f1.png" width="540" alt="Round 8 mean detection F1 for Kubernetes, Sentry, CloudWatch and Grafana with 95% bootstrap intervals">
 
 </details>
+
+## Round 8 data splits
+
+![Development records are split before context construction; five confirmation seeds remain held out](assets/confirmation-splits.svg)
+
+[Confirmation counts](evidence/data/round8_confirmation_inventory.csv) · [Development counts](evidence/data/round8_shared_dev_cohorts.csv)
 
 ## Replay workflow
 

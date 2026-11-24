@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="400" viewBox="0 0 880 400" role="img" aria-labelledby="title desc">
+<title id="title">MOZAIC from telemetry to evaluation</title>
+<desc id="desc">Four replay sources feed MCP time-window queries, a common schema and context from prior records. Fixed embeddings feed separate detection, association, clustering and scenario labelling tasks. Reference labels are kept out of the encoder and used where the protocol requires them for sampling and scoring.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10" fill="#3b5778"/></marker>
+</defs>
+<rect x="1" y="1" width="878" height="398" rx="10" fill="#fff" stroke="#cdd7e4" stroke-width="2"/>
+<g font-family="Arial, sans-serif" fill="#132746">
+<text x="27" y="38" font-size="24" font-weight="bold">From telemetry to evaluation</text>
+<g font-size="13" font-weight="bold" letter-spacing="1" fill="#365679">
+<text x="27" y="84">01  REPLAY</text><text x="278" y="84">02  PREPARE INPUTS</text><text x="550" y="84">03  MEASURE SEPARATE TASKS</text>
+</g>
+<g fill="#f4f7fb" stroke="#c2d0e0">
+<rect x="27" y="99" width="211" height="177" rx="6"/><rect x="278" y="99" width="232" height="177" rx="6"/>
+<rect x="550" y="99" width="303" height="39" rx="5"/><rect x="550" y="145" width="303" height="39" rx="5"/>
+<rect x="550" y="191" width="303" height="39" rx="5"/><rect x="550" y="237" width="303" height="39" rx="5"/>
+<rect x="27" y="318" width="826" height="53" rx="6" fill="#fbf8ee" stroke="#ddcfaa"/>
+</g>
+<g font-size="15">
+<text x="45" y="129" font-weight="bold">MCP time-window queries</text>
+<text x="45" y="168">Kubernetes</text><text x="45" y="193">Sentry</text>
+<text x="45" y="218">CloudWatch</text><text x="45" y="243">Grafana</text>
+<text x="296" y="130" font-weight="bold">Common record schema</text>
+<text x="296" y="170">Normalize text and metrics</text>
+<text x="296" y="200">Add earlier records from the</text><text x="296" y="222">same source, service and split</text>
+<text x="296" y="253">Encode with fixed MiniLM</text>
+<text x="566" y="124"><tspan font-weight="bold">Detection</tspan><tspan x="688">Record scores</tspan></text>
+<text x="566" y="170"><tspan font-weight="bold">Association</tspan><tspan x="688">Cross-source pairs</tspan></text>
+<text x="566" y="216"><tspan font-weight="bold">Clustering</tspan><tspan x="688">Group assignments</tspan></text>
+<text x="566" y="262"><tspan font-weight="bold">Labelling</tspan><tspan x="688">Scenario families</tspan></text>
+<text x="45" y="350"><tspan font-weight="bold">Reference labels</tspan><tspan x="181">Kept out of encoder input; used for splitting, target selection or scoring as specified.</tspan></text>
+</g>
+<g stroke="#3b5778" stroke-width="2" marker-end="url(#arrow)"><path d="M242 187h30"/><path d="M514 187h30"/></g>
+</g>
+</svg>
