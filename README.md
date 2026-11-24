@@ -1,64 +1,47 @@
 # MOZAIC
 
-**Protocol-Based Telemetry Replay and Task-Separated Incident Analysis**
+*Protocol-Based Telemetry Replay and Task-Separated Incident Analysis* · Companion repository for the Computing revision.
 
-Code and evidence for the MOZAIC revision for *Computing*. MOZAIC replays Kubernetes, Sentry, CloudWatch and Grafana telemetry through the Model Context Protocol (MCP). It evaluates detection, association, clustering and optional scenario labelling separately.
+MOZAIC replays telemetry from Kubernetes, Sentry, CloudWatch and Grafana through the Model Context Protocol. It scores unusual records, links records across sources and clusters them. Each task is evaluated separately.
 
-[Workflow](#replay-workflow) · [Results](#results-from-the-manuscript) · [Run the checks](#run-the-checks) · [Provenance](#provenance-and-scope)
-
-## Replay workflow
-
-<img src="assets/figure-1-replay-workflow.png" width="695" alt="Seven stages from replay-page retrieval and schema normalization through context, encoding, analysis, labelling and reporting">
-
-**Figure 1, manuscript p. 6.** Reference labels are kept separate from analysis inputs. Context uses earlier records from the same source, service and partition. The encoder weights are fixed; the detector still needs fitting and calibration.
-
-## Results from the manuscript
-
-### Detection varies by source
-
-<img src="assets/figure-2-detection-f1.png" width="540" alt="Round 8 mean detection F1: Kubernetes 0.507, Sentry 0.694, CloudWatch 0.087 and Grafana 0.100">
-
-**Figure 2, manuscript p. 13.** Mean detection F1 and archived 95% bootstrap intervals for five synthetic Round 8 runs under the historical quiet-baseline protocol. These are not production scores. [Source-level summary](evidence/data/round8_quiet_detection_summary.csv)
-
-### Association depends on identifiers
-
-<img src="assets/figure-3-identifier-stress.png" width="500" alt="Two panels show pair F1 and false co-memberships under identifier dropout and corruption">
-
-**Figure 3, manuscript p. 15.** With the same records and reference labels, mean pair F1 fell from **0.557** with identifiers intact to **0.016** with full dropout. The bottom panel counts false co-memberships in a selected cohort of 95 negative pairs. It is not the global false-positive rate. [Global counts](evidence/data/round8_background_pair_counts.csv) · [Selected-pair counts](evidence/data/round8_overlap_counts.csv)
-
-## Run the checks
-
-**Verify the aggregate evidence.** Python 3.9+; no extra dependencies, credentials or data downloads.
+## Check the results
 
 ```sh
 python3 evidence/verify_aggregates.py
 ```
 
-**Exercise the runtime on synthetic fixtures.** Use Python 3.11 or 3.12.
+Run from the repository root with Python 3.9 or newer. No packages, downloads or credentials are needed. The checker recomputes association metrics from the released counts and checks the evidence files against their recorded hashes. It does not rerun the experiments.
 
-```sh
-cd runtime
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-smoke.txt
-python -m pytest -q
-```
+[Find the data behind each table](evidence/README.md) · [Run the fixture tests](runtime/REPRODUCIBILITY.md) · [Trace the code to its source](runtime/SOURCE_PROVENANCE.json)
 
-The release check passed 38 fixture tests. The optional [four-source replay example](runtime/REPRODUCIBILITY.md) runs in process, with invented records and no cloud accounts. Neither check runs the historical experiments or calls a model provider.
+## What the experiments found
 
-## Provenance and scope
-
-| Looking for | Start here |
+| Manuscript result | What to look at |
 | --- | --- |
-| A manuscript result and its supporting file | [Evidence guide](evidence/README.md) |
-| Source commits, experiment cohorts and file hashes | [Aggregate manifest](evidence/aggregate_manifest.json) |
-| Original file hashes, extracted code and frozen settings | [Runtime provenance](runtime/SOURCE_PROVENANCE.json) |
-| Origin of the three figures | [Figure notes](assets/README.md) |
+| **Detection varied by source.** Across five Round 8 seeds, mean F1 was 0.507 for Kubernetes, 0.694 for Sentry, 0.087 for CloudWatch and 0.100 for Grafana. | [Figure 2](assets/figure-2-detection-f1.png) · [Table 5 data](evidence/data/round8_quiet_detection_summary.csv) |
+| **Association depended on identifiers.** Mean pair F1 fell from 0.557 to 0.016 when all correlation identifiers were removed. Among 95 selected negative pairs, false co-memberships rose from zero to four. | [Figure 3](assets/figure-3-identifier-stress.png) · [Table 6 counts](evidence/data/round8_background_pair_counts.csv) · [Table 7 counts](evidence/data/round8_overlap_counts.csv) |
 
-This public snapshot does not include the development history, original submission data, private telemetry, complete predictions or memberships, or paid-provider checkpoints. The evidence checker verifies the included aggregate counts and selected calculations, not every underlying experiment.
+<img src="assets/figure-3-identifier-stress.png" width="500" alt="Manuscript Figure 3: mean pair F1 and selected false co-memberships under identifier dropout and corruption">
 
-HDFS and BGL are sampled single-source detection benchmarks. RCAEval labels indicate exposure to a fault injection, not independent record-level anomaly truth. Round 9 rescored saved assignments without refitting or reclustering. The later four-source collection check reached offline initialization and did not score records. Archived scenario-label agreement is not a human assessment of diagnosis quality.
+*Figure 3 from the manuscript. The lower panel shows a selected cohort, not the global false-positive rate.*
 
-**Encoder pin:** `sentence-transformers/all-MiniLM-L6-v2`, revision `c9745ed1d9f207416be6d2e6f8de32d1f16199bf`.
+<details>
+<summary>Figure 2: detection F1 by source</summary>
 
-When referencing the repository, cite the manuscript title and the exact Git commit you used.
+<img src="assets/figure-2-detection-f1.png" width="540" alt="Round 8 mean detection F1 for Kubernetes, Sentry, CloudWatch and Grafana with 95% bootstrap intervals">
+
+</details>
+
+## Replay workflow
+
+<img src="assets/figure-1-replay-workflow.png" width="640" alt="Manuscript Figure 1: seven steps from replay-page retrieval to reporting">
+
+*Figure 1 from the manuscript. Reference labels stay outside the encoder input. The encoder is fixed, but the detector is fitted and calibrated.*
+
+## What is available
+
+- [Runtime code and fixture tests](runtime/REPRODUCIBILITY.md), with [source hashes](runtime/SOURCE_PROVENANCE.json) and frozen configurations.
+- [Aggregate evidence](evidence/README.md), with [original source references and file hashes](evidence/aggregate_manifest.json).
+- [Manuscript figures and their provenance](assets/README.md).
+
+This snapshot omits private telemetry, complete row-level predictions and memberships, and paid-provider checkpoints. It does not reproduce every historical run. The four-source collection check stopped at offline initialization; it did not measure detection accuracy.
